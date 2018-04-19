@@ -48,12 +48,6 @@ public class ProjetControleur {
         } while (x != 5);
     }
     
-    public void ajoutVoiture() {
-        Voiture v = gv.encodeVoiture();
-        String msg = gm.ajouterVoiture(v);
-        gv.affMsg(msg);
-
-    }
     
     public void ajoutVol(){
         Vol v = pv.ajoutVol();
@@ -63,7 +57,7 @@ public class ProjetControleur {
     }
     
     public void listVol(){
-        
+        List<Vol> lv = pm.vols();
         
     }
     
@@ -77,12 +71,6 @@ public class ProjetControleur {
         
     }
     
-    
-    
-    public void listeClients() {
-        List<Client> lc = gm.tousClients();
-        gv.affListe(lc);
-    }
     
     
 }
