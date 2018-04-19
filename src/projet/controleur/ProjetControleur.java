@@ -1,5 +1,10 @@
 package projet.controleur;
+import java.util.List;
+
 import projet.modele.ProjetModele;
+import projet.modele.Vol;
+import projet.modele.aeroport;
+
 import projet.vue.ProjetVue;
 
 
@@ -18,47 +23,65 @@ public class ProjetControleur {
     }
     
     public void gestion() {
-
-        //TODO rendre cohérent la liste des switch cases et la liste des éléments du menu
         int x;
         do {
             x = pv.menu();
-
             switch (x) {
                 case 1:
-                    ajoutVoiture();
+                    ajoutVol();
                     break;
                 case 2:
-                    ajoutClient();
+                    listVol();
                     break;
                 case 3:
-                    vendreVehicule();
+                    ajoutAeroport();
                     break;
-
                 case 4:
-                    changementAdresse();
+                    listAeroport();
                     break;
                 case 5:
-                    proprietaire();
-                    break;
-                case 6:
-                    proprietes();
-                    break;
-                case 7:
-                    listeVoitures();
-                    break;
-                case 8:
-                    listeClients();
-                    break;
-
-                case 9:
-                    gv.affMsg("bye");
+                    pv.affMsg("fin");
                     break;
                 default:
-                    gv.affMsg("choix invalide");
+                    pv.affMsg("erreur trop grand");
             }
-        } while (x != 9);
+        } while (x != 5);
+    }
+    
+    public void ajoutVoiture() {
+        Voiture v = gv.encodeVoiture();
+        String msg = gm.ajouterVoiture(v);
+        gv.affMsg(msg);
 
+    }
+    
+    public void ajoutVol(){
+        Vol v = pv.ajoutVol();
+        String msg = pm.ajoutVol(v);
+        pv.affMsg(msg);
+        
+    }
+    
+    public void listVol(){
+        
+        
+    }
+    
+    public void ajoutAeroport(){
+        
+        
+    }
+    
+    public void listAeroport(){
+        
+        
+    }
+    
+    
+    
+    public void listeClients() {
+        List<Client> lc = gm.tousClients();
+        gv.affListe(lc);
     }
     
     
